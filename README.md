@@ -1,132 +1,159 @@
 # Low-Latency Trading System
 
-一个使用 C++17 编写的低延迟交易系统学习项目。项目目标是从基础组件开始，逐步实现订单网关、FIFO 请求排序、撮合引擎、订单簿以及市场数据发布流程。
+一个使用 C++20 编写的低延迟交易系统学习项目。系统包含订单接入、FIFO 请求排序、撮合引擎、订单簿，以及增量行情与快照行情发布链路。
 
-> 项目目前仍处于学习和开发阶段，不适合用于真实交易或生产环境。
+> 项目仍处于学习和开发阶段，仅用于技术研究，不适合真实交易或生产环境。
+
+## 系统架构
+
+```text
+交易客户端
+    │ TCP 订单请求（127.0.0.1:12345）
+    ▼
+OrderServer ── 序列号校验 ──► FIFOSequencer
+    │                              │
+    │ 客户端响应                   ▼
+    ◄──────────────────── ClientRequestLFQueue
+                                   │
+                                   ▼
+                            MatchingEngine
+                                   │
+                     ┌─────────────┴─────────────┐
+                     ▼                           ▼
+          ClientResponseLFQueue       MEMarketUpdateLFQueue
+                                                 │
+                                                 ▼
+                                      MarketDataPublisher
+                                         │             │
+                          增量行情组播 ◄──┘             └──► SnapshotSynthesizer
+                          233.252.14.3:20001                  │
+                                                快照行情组播 ▼
+                                                233.252.14.1:20000
+```
+
+默认网络接口为回环接口 `lo`。快照合成器维护订单状态，并每 60 秒发布一次完整快照。
+
+## 当前功能
+
+- 固定容量低延迟队列与预分配对象内存池
+- 异步日志记录
+- Linux 非阻塞 TCP、epoll 和 UDP 组播封装
+- 客户端订单请求/响应及客户端序列号校验
+- 按接收时间排序的 FIFO Sequencer
+- 每个交易品种独立的限价订单簿
+- 新增、撤单和价格优先/时间优先撮合
+- 成交、订单新增、修改和撤销的增量行情发布
+- 基于增量行情维护状态并定时发布市场快照
+- CMake + Ninja Release 构建
 
 ## 项目结构
 
 ```text
 .
-├── common/                         # 公共基础设施
-│   ├── lf_queue.h                  # 固定容量队列
-│   ├── logging.h                   # 异步日志
-│   ├── mem_pool.h                  # 对象内存池
-│   ├── socket_utils.h              # Socket 工具函数
-│   ├── tcp_server.*                # 基于 epoll 的 TCP 服务端
-│   ├── tcp_socket.*                # TCP Socket 封装
-│   ├── mcast_socket.*              # UDP 组播 Socket 封装
-│   ├── thread_utils.h              # 线程创建及 CPU 亲和性
-│   ├── time_utils.h                # 时间工具
-│   └── types.h                     # 订单、价格、数量等公共类型
-├── exchange/
-│   ├── exchange_main.cpp           # 交易所程序入口
-│   ├── matcher/                    # 撮合引擎与订单簿
-│   ├── order_server/               # 订单接入、序列校验和 FIFO 排序
-│   └── market_data/                # 市场数据消息与发布器
-└── .vscode/                        # VS Code C++17 配置
-```
-
-## 当前功能
-
-- 固定容量队列和对象内存池
-- 异步日志记录
-- 非阻塞 TCP、epoll 和 UDP 组播基础封装
-- 客户端订单请求与响应消息
-- 按接收时间排序的 FIFO Sequencer
-- 每个交易品种独立的订单簿
-- 限价单新增、撤单及基础撮合流程
-- 成交、订单新增、修改和撤销市场数据消息
-
-## 数据流
-
-```text
-客户端
-  │ TCP 订单请求
-  ▼
-OrderServer
-  │ 序列号校验
-  ▼
-FIFOSequencer
-  │ 按接收时间排序
-  ▼
-ClientRequestLFQueue
-  ▼
-MatchingEngine ──► MEOrderBook
-  │                    │
-  │ 客户端响应          │ 市场数据更新
-  ▼                    ▼
-ClientResponseLFQueue  MEMarketUpdateLFQueue
+├── CMakeLists.txt                  # 顶层构建配置与 exchange_main 目标
+├── build.sh                       # Release 构建脚本
+├── common/                        # 公共基础设施
+│   ├── lf_queue.h                 # 固定容量队列
+│   ├── logging.h                  # 异步日志
+│   ├── mem_pool.h                 # 对象内存池
+│   ├── mcast_socket.*             # UDP 组播 Socket
+│   ├── tcp_server.*               # 基于 epoll 的 TCP 服务端
+│   ├── tcp_socket.*               # TCP Socket 封装
+│   ├── thread_utils.h             # 线程创建与 CPU 亲和性
+│   └── types.h                    # 订单、价格、数量等公共类型
+└── exchange/
+    ├── exchange_main.cpp          # 交易所程序入口
+    ├── matcher/                   # 撮合引擎与订单簿
+    ├── order_server/              # 订单接入、校验与 FIFO 排序
+    └── market_data/               # 增量行情发布与快照合成
 ```
 
 ## 环境要求
 
-- Linux（使用了 epoll、CPU affinity 等 Linux 接口）
-- Clang 或 GCC
-- C++17
+- Linux（依赖 epoll、CPU affinity 等 Linux 接口）
+- GCC（当前 CMake 配置使用 `g++`）
+- CMake 3.0+
+- Ninja
+- 支持 C++20 的标准库与编译器
 - POSIX Threads
 
-推荐使用 VS Code，并安装 Microsoft C/C++ 或 clangd 扩展。
+Ubuntu/Debian 可安装以下构建工具：
+
+```bash
+sudo apt update
+sudo apt install build-essential cmake ninja-build
+```
 
 ## 编译
 
-项目暂时没有 CMake 或 Makefile，可以在项目根目录手动编译：
+在项目根目录执行：
 
 ```bash
-clang++ -std=c++17 -O2 -pthread -I. \
-  exchange/exchange_main.cpp \
-  exchange/matcher/matching_engine.cpp \
-  exchange/matcher/me_order.cpp \
-  exchange/matcher/me_order_book.cpp \
-  exchange/order_server/order_server.cpp \
-  exchange/market_data/market_data_publisher.cpp \
-  common/tcp_server.cpp \
-  common/tcp_socket.cpp \
-  common/mcast_socket.cpp \
-  -o exchange_app
+chmod +x build.sh
+./build.sh
 ```
 
-也可以将 `clang++` 替换为 `g++`。
+脚本会生成 `cmake-build-release/`，执行一次 clean build，并产出：
 
-只进行语法检查：
+```text
+cmake-build-release/exchange_main
+```
+
+也可以手动执行 CMake：
 
 ```bash
-find . -type f -name '*.cpp' -print0 | \
-  xargs -0 clang++ -std=c++17 -Wall -Wextra -Wpedantic -I. -fsyntax-only
+cmake -S . -B cmake-build-release -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build cmake-build-release -j 4
 ```
 
 ## 运行
 
 ```bash
-./exchange_app
+./cmake-build-release/exchange_main
 ```
 
-程序会启动撮合引擎并写入日志文件。按 `Ctrl+C` 退出。
+启动后会运行以下后台组件：
+
+- `MatchingEngine`
+- `OrderServer`
+- `MarketDataPublisher`
+- `SnapshotSynthesizer`
+
+运行日志会写入项目根目录下的 `exchange_*.log` 文件。按 `Ctrl+C` 退出。
+
+## 默认网络配置
+
+| 服务 | 协议 | 地址/接口 | 端口 |
+| --- | --- | --- | ---: |
+| 订单网关 | TCP | `lo` | `12345` |
+| 增量行情 | UDP 组播 | `233.252.14.3` | `20001` |
+| 快照行情 | UDP 组播 | `233.252.14.1` | `20000` |
+
+当前配置直接定义在 `exchange/exchange_main.cpp` 中。
 
 ## 开发状态与限制
 
-项目仍在持续开发，目前需要继续完善：
+后续仍需重点完善：
 
-- 订单服务器与主程序的完整启动和关闭流程
-- 网络消息的序列化、字节序和安全解析
-- FIFO Sequencer 与响应发送流程
-- 市场数据增量发布和快照恢复
-- 订单簿边界检查及异常输入处理
-- 单元测试、集成测试和性能基准
-- CMake 或 Makefile 构建配置
+- 优雅、安全的启动与关闭流程
+- 网络消息的显式序列化、结构体布局和字节序处理
+- 网络断连、非法客户端 ID、越界订单等异常输入防护
+- 增量行情丢包检测与客户端侧快照恢复
+- 线程生命周期、资源回收及错误处理
+- 单元测试、集成测试、压力测试与延迟基准
+- 可配置的接口、地址、端口和 CPU 亲和性
 
-当前代码使用 `reinterpret_cast` 读取网络消息，实际跨平台通信时还需要处理结构体布局、内存对齐和网络字节序。
+当前网络消息主要通过内存结构直接传输，并使用 `reinterpret_cast` 解析。跨平台或生产级通信需要稳定的线协议，不能依赖本机结构体布局。
 
 ## 学习重点
 
-这个项目适合用于练习：
-
-- C++17 类型系统、模板和 RAII
+- C++20 类型系统、模板与 RAII
 - 无锁/低锁数据结构
 - 预分配内存与对象池
-- Linux 非阻塞网络编程和 epoll
-- 订单簿及价格优先、时间优先撮合
-- 延迟测量、日志和线程 CPU 亲和性
+- Linux 非阻塞网络编程、epoll 与 UDP 组播
+- 价格优先、时间优先订单撮合
+- 增量行情、市场快照与序列号恢复机制
+- 延迟测量、异步日志与线程 CPU 亲和性
 
 ## 声明
 

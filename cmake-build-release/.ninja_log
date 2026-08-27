@@ -1,0 +1,15 @@
+# ninja log v5
+0	1	0	clean	a31eedcededa8236
+1	2306	1787841949348210887	common/CMakeFiles/libcommon.dir/tcp_server.cpp.o	4177483537463824
+2	2422	1787841949464210340	common/CMakeFiles/libcommon.dir/tcp_socket.cpp.o	aef5601b24892452
+1	2459	1787841949499210175	CMakeFiles/exchange_main.dir/exchange/exchange_main.cpp.o	aba5e99a54ad8ff8
+1	2607	1787841949649209469	common/CMakeFiles/libcommon.dir/mcast_socket.cpp.o	41eeeadc5af445d0
+2607	2671	1787841949710209181	common/liblibcommon.a	39e741580a8e2db9
+2671	3289	1787841950331206380	exchange/CMakeFiles/libexchange.dir/matcher/me_order.cpp.o	7c02923254440ddc
+2459	4435	1787841951477201547	exchange/CMakeFiles/libexchange.dir/matcher/matching_engine.cpp.o	eca2f136a120d7d
+2307	4468	1787841951510201413	exchange/CMakeFiles/libexchange.dir/market_data/market_data_publisher.cpp.o	3a8ca075af7dfee0
+2422	4796	1787841951837200088	exchange/CMakeFiles/libexchange.dir/market_data/snapshot_synthesizer.cpp.o	dcb975c109d940f3
+3289	5234	1787841952276198367	exchange/CMakeFiles/libexchange.dir/matcher/me_order_book.cpp.o	6d9258965dde8800
+4435	5944	1787841952986195639	exchange/CMakeFiles/libexchange.dir/order_server/order_server.cpp.o	40539d53976200f5
+5944	5964	1787841953006195563	exchange/liblibexchange.a	b09d84d9c9fcd4be
+5964	5989	1787841953031195471	exchange_main	59a2726740950d3d

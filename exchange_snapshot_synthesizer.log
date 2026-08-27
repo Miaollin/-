@@ -1,0 +1,35 @@
+/home/pore/LowLatency-trading-system/common/socket_utils.h:100 createSocket() Thu Aug 27 14:46:04 2026 cfg:SocketCfg[ip:233.252.14.1 iface:lo port:20000 is_udp:1 is_listening:0 needs_SO_timestamp:0]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:95 run() Thu Aug 27 14:46:04 2026
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:68 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:0 MEMarketUpdate [type:SNAPSHOT_START ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:1 MEMarketUpdate [type:CLEAR ticker:0 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:2 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:126
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 2 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:3 MEMarketUpdate [type:CLEAR ticker:1 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:4 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 4 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:5 MEMarketUpdate [type:CLEAR ticker:2 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:6 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 6 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:7 MEMarketUpdate [type:CLEAR ticker:3 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:8 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 8 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:9 MEMarketUpdate [type:CLEAR ticker:4 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:10 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 10 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:11 MEMarketUpdate [type:CLEAR ticker:5 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:12 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 12 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:13 MEMarketUpdate [type:CLEAR ticker:6 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:14 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 14 orders.
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:76 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:15 MEMarketUpdate [type:CLEAR ticker:7 oid:INVALID side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:88 publishSnapshot() Thu Aug 27 14:46:04 2026 MDPMarketUpdate [ seq:16 MEMarketUpdate [type:SNAPSHOT_END ticker:INVALID oid:0 side:INVALID qtyINVALID price:INVALID priorityINVALID]]
+/home/pore/LowLatency-trading-system/common/mcast_socket.cpp:38 sendAndRecv() Thu Aug 27 14:46:04 2026 send socket:8 len:84
+/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp:91 publishSnapshot() Thu Aug 27 14:46:04 2026 Published snapshot of 16 orders.

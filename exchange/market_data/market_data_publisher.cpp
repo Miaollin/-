@@ -34,7 +34,7 @@ auto MarketDataPublisher::run() noexcept -> void {
             outgoing_md_updates_->size()&&market_update;market_update=outgoing_md_updates_->getNextToRead()){
             logger_.log("%:% %() % Sending seq:% %\n",__FILE__,__LINE__,__FUNCTION__,Common::getCurrentTimeStr(&time_str_),next_inc_seq_num_,market_update->toString().c_str());
             incremental_socket_.send(&next_inc_seq_num_,sizeof(next_inc_seq_num_));
-            incremental_socket_.send(&market_update,sizeof(MEMarketUpdate));
+            incremental_socket_.send(market_update,sizeof(MEMarketUpdate));
             outgoing_md_updates_->updateReadIndex();
 
             auto next_write=snapshot_md_updates_.getNextToWrite();

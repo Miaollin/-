@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <fstream>
+#include <filesystem>
 #include <cstdio>
 #include "types.h"
 #include "macros.h"
@@ -38,15 +39,24 @@ namespace Common{
 
     class Logger final{
     private:
+        static auto makeLogFileName(const std::string &file_name) -> std::string {
+            const std::filesystem::path log_dir{"logs"};
+            std::error_code error;
+            std::filesystem::create_directories(log_dir, error);
+            ASSERT(!error, "Could not create log directory:" + log_dir.string() + " error:" + error.message());
+
+            return (log_dir / std::filesystem::path(file_name).filename()).string();
+        }
+
         const std::string file_name_;
         std::ofstream file_;
         LFQueue<LogElement> queue_;
         std::atomic<bool> running_ = {true};
         std::thread *logger_thread_=nullptr;
     public:
-        explicit Logger(const std::string &file_name):file_name_(file_name),queue_(LOG_QUEUE_SIZE){
-            file_.open(file_name);
-            ASSERT(file_.is_open(),"Could not open log file:"+file_name);
+        explicit Logger(const std::string &file_name):file_name_(makeLogFileName(file_name)),queue_(LOG_QUEUE_SIZE){
+            file_.open(file_name_);
+            ASSERT(file_.is_open(),"Could not open log file:"+file_name_);
             logger_thread_=createAndStartThread(-1,"Common/Logger",[this](){
                 flushQueue();
             });

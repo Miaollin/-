@@ -1,6 +1,9 @@
 #pragma once
+#include <array>
 #include <cstdint>
 #include <limits>
+#include <sstream>
+#include <string>
 #include "macros.h"
 
 namespace Common

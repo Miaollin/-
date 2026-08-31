@@ -1,0 +1,27 @@
+# ninja log v5
+0	1	0	clean	a31eedcededa8236
+1	2105	1788185884605752626	CMakeFiles/exchange_main.dir/exchange/exchange_main.cpp.o	7572f6069e3c48e8
+2	2261	1788185884764760601	common/CMakeFiles/libcommon.dir/tcp_server.cpp.o	4177483537463824
+2	2591	1788185885096777255	common/CMakeFiles/libcommon.dir/mcast_socket.cpp.o	41eeeadc5af445d0
+1	2633	1788185885135779211	CMakeFiles/trading_main.dir/trading/trading_main.cpp.o	1b5b4bdc5b7e7f43
+2105	4242	1788185886747860069	common/CMakeFiles/libcommon.dir/tcp_socket.cpp.o	aef5601b24892452
+4242	4293	1788185886798862627	common/liblibcommon.a	39e741580a8e2db9
+2633	4532	1788185887037874616	exchange/CMakeFiles/libexchange.dir/matcher/matching_engine.cpp.o	eca2f136a120d7d
+2261	4653	1788185887158880685	exchange/CMakeFiles/libexchange.dir/market_data/market_data_publisher.cpp.o	3a8ca075af7dfee0
+4293	4944	1788185887447895181	exchange/CMakeFiles/libexchange.dir/matcher/me_order.cpp.o	7c02923254440ddc
+2591	4965	1788185887466896134	exchange/CMakeFiles/libexchange.dir/market_data/snapshot_synthesizer.cpp.o	dcb975c109d940f3
+4532	6823	1788185889328989532	exchange/CMakeFiles/libexchange.dir/matcher/me_order_book.cpp.o	6d9258965dde8800
+4653	7772	1788185890276037034	exchange/CMakeFiles/libexchange.dir/order_server/order_server.cpp.o	40539d53976200f5
+4965	7796	1788185890298038138	trading/CMakeFiles/libtrading.dir/order_gw/order_gateway.cpp.o	6458ea2aac046146
+7772	7812	1788185890315038990	exchange/liblibexchange.a	b09d84d9c9fcd4be
+4944	7869	1788185890374041950	trading/CMakeFiles/libtrading.dir/market_data/market_data_consumer.cpp.o	479111e15e91de93
+7812	8431	1788185890937070190	trading/CMakeFiles/libtrading.dir/strategy/market_order.cpp.o	777f4d0d4d018edd
+6823	9304	1788185891810113980	trading/CMakeFiles/libtrading.dir/strategy/liquidity_taker.cpp.o	ef658fce96d32531
+8431	10105	1788185892610154108	trading/CMakeFiles/libtrading.dir/strategy/order_manager.cpp.o	16b0a8fb720393d0
+7869	10263	1788185892765161883	trading/CMakeFiles/libtrading.dir/strategy/market_order_book.cpp.o	8bd42dbe1eba7b4c
+9304	10292	1788185892798163538	trading/CMakeFiles/libtrading.dir/strategy/risk_manager.cpp.o	9549680cd18bfcf7
+7796	10430	1788185892936170460	trading/CMakeFiles/libtrading.dir/strategy/market_marker.cpp.o	ebf595a666cae246
+10105	11574	1788185894080227843	trading/CMakeFiles/libtrading.dir/strategy/trade_engine.cpp.o	ae5249ef5a9b9252
+11574	11592	1788185894098228746	trading/liblibtrading.a	442ffbc53b9b5fc6
+11592	11634	1788185894140230853	exchange_main	28555585ad9e68e4
+11593	11639	1788185894145231104	trading_main	68c8af7ee467caeb

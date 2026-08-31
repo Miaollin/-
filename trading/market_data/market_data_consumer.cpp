@@ -60,7 +60,7 @@ namespace Trading
         if (socket->next_rcv_valid_index_ >= sizeof(Exchange::MDPMarketUpdate))
         {
             size_t i = 0;
-            for (; i + sizeof(Exchange::MDPMarketUpdate) <= socket->next_rcv_valid_index_; i + sizeof(Exchange::MDPMarketUpdate))
+            for (; i + sizeof(Exchange::MDPMarketUpdate) <= socket->next_rcv_valid_index_; i += sizeof(Exchange::MDPMarketUpdate))
             {
                 auto request = reinterpret_cast<const Exchange::MDPMarketUpdate *>(socket->inbound_data_.data() + i);
                 logger_.log("%:% %() % Received % socket len:% %\n", __FILE__, __LINE__, __FUNCTION__, Common::getCurrentTimeStr(&time_str_), (is_snapshot ? "snapshot" : "incremental"), sizeof(sizeof(Exchange::MDPMarketUpdate), request->toString()));
@@ -99,7 +99,7 @@ namespace Trading
         ASSERT(snapshot_mcast_socket_.init(snapshot_ip_, iface_, snapshot_port_, true) > 0, "Unable to create snapshot mcast socket.error:" + std::string(std::strerror(errno)));
         ASSERT(snapshot_mcast_socket_.join(snapshot_ip_), "Join failed on:" + std::to_string(snapshot_mcast_socket_.socket_fd_) + "error:" + std::string(std::strerror(errno)));
     }
-    auto MarketDataConsumer::queueMessage(bool is_snapshot, const Exchange::MDPMarketUpdate *request)
+    auto MarketDataConsumer::queueMessage(bool is_snapshot, const Exchange::MDPMarketUpdate *request) -> void
     {
         if (is_snapshot)
         {

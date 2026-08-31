@@ -76,7 +76,7 @@ namespace Trading
         TickerRiskInfoHashMap ticker_risk_;
 
     public:
-        RiskManager::RiskManager(Common::Logger *logger, const PositionKeeper *position_keeper, const TradeEngineCfgHashMap &ticker_cfg);
+        RiskManager(Common::Logger *logger, const PositionKeeper *position_keeper, const TradeEngineCfgHashMap &ticker_cfg);
         auto checkPreTradeRisk(TickerId ticker_id,Side side,Qty qty) const noexcept{
             return ticker_risk_.at(ticker_id).checkPreTradeRisk(side,qty);
         }

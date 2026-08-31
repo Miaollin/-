@@ -29,7 +29,7 @@ namespace Trading
         {
             return &(ticker_side_order_.at(ticker_id));
         }
-        auto newOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept;
+        auto newOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept ->void;
         auto cancelOrder(OMOrder *order) noexcept -> void;
 
         auto onOrderUpdate(const Exchange::MEClientResponse *client_response) noexcept -> void
@@ -66,12 +66,48 @@ namespace Trading
             break;
             }
         }
-        auto moveOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept ->void;
-        auto moveOrders(TickerId ticker_id,Price bid_price,Price ask_price,Qty clip) noexcept{
-            auto bid_order=&(ticker_side_order_.at(ticker_id).at(sideToIndex(Side::BUY)));
-            moveOrder(bid_order,ticker_id,bid_price,Side::BUY,clip);
-            auto ask_order=&(ticker_side_order_.at(ticker_id).at(sideToIndex(Side::SELL)));
-            moveOrder(ask_order,ticker_id,ask_price,Side::SELL,clip);
+
+        auto moveOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept -> void
+        {
+            switch (order->order_state_)
+            {
+            case OMOrderState::LIVE:
+            {
+                if (order->price_ != price)
+                {
+                    cancelOrder(order);
+                }
+            }
+            break;
+            case OMOrderState::INVALID:
+            case OMOrderState::DEAD:
+            {
+                if (LIKELY(price != Price_INVALID))
+                {
+                    const auto risk_result = risk_manager_.checkPreTradeRisk(ticker_id, side, qty);
+                    if (LIKELY(risk_result == RiskCheckResult::ALLOWED))
+                    {
+                        newOrder(order, ticker_id, price, side, qty);
+                    }
+                    else
+                        logger_->log("%:% %() % Ticker:% Side:% Qty:% RiskCheckResult:%\n", __FILE__, __LINE__, __FUNCTION__,
+                                     Common::getCurrentTimeStr(&time_str_),
+                                     tickerIdToString(ticker_id), sideToString(side), qtyToString(qty),
+                                     riskCheckResultToString(risk_result));
+                }
+            }
+            break;
+            case OMOrderState::PENDING_NEW:
+            case OMOrderState::PENDING_CANCEL:
+                break;
+            }
+        }
+        auto moveOrders(TickerId ticker_id, Price bid_price, Price ask_price, Qty clip) noexcept
+        {
+            auto bid_order = &(ticker_side_order_.at(ticker_id).at(sideToIndex(Side::BUY)));
+            moveOrder(bid_order, ticker_id, bid_price, Side::BUY, clip);
+            auto ask_order = &(ticker_side_order_.at(ticker_id).at(sideToIndex(Side::SELL)));
+            moveOrder(ask_order, ticker_id, ask_price, Side::SELL, clip);
         }
     };
 }

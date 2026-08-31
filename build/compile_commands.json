@@ -1,0 +1,122 @@
+[
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o CMakeFiles/exchange_main.dir/exchange/exchange_main.cpp.o -c /home/pore/LowLatency-trading-system/exchange/exchange_main.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/exchange_main.cpp",
+  "output": "CMakeFiles/exchange_main.dir/exchange/exchange_main.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o CMakeFiles/trading_main.dir/trading/trading_main.cpp.o -c /home/pore/LowLatency-trading-system/trading/trading_main.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/trading_main.cpp",
+  "output": "CMakeFiles/trading_main.dir/trading/trading_main.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o common/CMakeFiles/libcommon.dir/mcast_socket.cpp.o -c /home/pore/LowLatency-trading-system/common/mcast_socket.cpp",
+  "file": "/home/pore/LowLatency-trading-system/common/mcast_socket.cpp",
+  "output": "common/CMakeFiles/libcommon.dir/mcast_socket.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o common/CMakeFiles/libcommon.dir/tcp_server.cpp.o -c /home/pore/LowLatency-trading-system/common/tcp_server.cpp",
+  "file": "/home/pore/LowLatency-trading-system/common/tcp_server.cpp",
+  "output": "common/CMakeFiles/libcommon.dir/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o common/CMakeFiles/libcommon.dir/tcp_socket.cpp.o -c /home/pore/LowLatency-trading-system/common/tcp_socket.cpp",
+  "file": "/home/pore/LowLatency-trading-system/common/tcp_socket.cpp",
+  "output": "common/CMakeFiles/libcommon.dir/tcp_socket.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o exchange/CMakeFiles/libexchange.dir/market_data/market_data_publisher.cpp.o -c /home/pore/LowLatency-trading-system/exchange/market_data/market_data_publisher.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/market_data/market_data_publisher.cpp",
+  "output": "exchange/CMakeFiles/libexchange.dir/market_data/market_data_publisher.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o exchange/CMakeFiles/libexchange.dir/market_data/snapshot_synthesizer.cpp.o -c /home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/market_data/snapshot_synthesizer.cpp",
+  "output": "exchange/CMakeFiles/libexchange.dir/market_data/snapshot_synthesizer.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o exchange/CMakeFiles/libexchange.dir/matcher/matching_engine.cpp.o -c /home/pore/LowLatency-trading-system/exchange/matcher/matching_engine.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/matcher/matching_engine.cpp",
+  "output": "exchange/CMakeFiles/libexchange.dir/matcher/matching_engine.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o exchange/CMakeFiles/libexchange.dir/matcher/me_order.cpp.o -c /home/pore/LowLatency-trading-system/exchange/matcher/me_order.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/matcher/me_order.cpp",
+  "output": "exchange/CMakeFiles/libexchange.dir/matcher/me_order.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o exchange/CMakeFiles/libexchange.dir/matcher/me_order_book.cpp.o -c /home/pore/LowLatency-trading-system/exchange/matcher/me_order_book.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/matcher/me_order_book.cpp",
+  "output": "exchange/CMakeFiles/libexchange.dir/matcher/me_order_book.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/exchange -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o exchange/CMakeFiles/libexchange.dir/order_server/order_server.cpp.o -c /home/pore/LowLatency-trading-system/exchange/order_server/order_server.cpp",
+  "file": "/home/pore/LowLatency-trading-system/exchange/order_server/order_server.cpp",
+  "output": "exchange/CMakeFiles/libexchange.dir/order_server/order_server.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/market_data/market_data_consumer.cpp.o -c /home/pore/LowLatency-trading-system/trading/market_data/market_data_consumer.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/market_data/market_data_consumer.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/market_data/market_data_consumer.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/order_gw/order_gateway.cpp.o -c /home/pore/LowLatency-trading-system/trading/order_gw/order_gateway.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/order_gw/order_gateway.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/order_gw/order_gateway.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/liquidity_taker.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/liquidity_taker.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/liquidity_taker.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/liquidity_taker.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/market_marker.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/market_marker.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/market_marker.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/market_marker.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/market_order.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/market_order.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/market_order.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/market_order.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/market_order_book.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/market_order_book.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/market_order_book.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/market_order_book.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/order_manager.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/order_manager.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/order_manager.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/order_manager.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/risk_manager.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/risk_manager.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/risk_manager.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/risk_manager.cpp.o"
+},
+{
+  "directory": "/home/pore/LowLatency-trading-system/build",
+  "command": "g++ -I/home/pore/LowLatency-trading-system -I/home/pore/LowLatency-trading-system/trading -std=c++2a -Wall -Wextra -Werror -Wpedantic -g -std=gnu++20 -o trading/CMakeFiles/libtrading.dir/strategy/trade_engine.cpp.o -c /home/pore/LowLatency-trading-system/trading/strategy/trade_engine.cpp",
+  "file": "/home/pore/LowLatency-trading-system/trading/strategy/trade_engine.cpp",
+  "output": "trading/CMakeFiles/libtrading.dir/strategy/trade_engine.cpp.o"
+}
+]

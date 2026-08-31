@@ -12,11 +12,11 @@ namespace Trading
         logger_->log("%:% %() % OrderBook\n%\n", __FILE__, __LINE__, __FUNCTION__,
                      Common::getCurrentTimeStr(&time_str_), toString(false, true));
     }
-    auto MarketOrderBook::setTradeEngine(TradeEngine *trade_engine)
+    auto MarketOrderBook::setTradeEngine(TradeEngine *trade_engine)->void
     {
         trade_engine_ = trade_engine;
     }
-    auto MarketOrderBook::onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept
+    auto MarketOrderBook::onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept ->void
     {
         const auto bids_updated_ = (bids_by_price_ && market_update->side_ == Side::BUY && market_update->price_ >= bids_by_price_->price_);
         const auto asks_updated_ = (asks_by_price_ && market_update->side_ == Side::SELL && market_update->price_ <= asks_by_price_->price_);
@@ -89,7 +89,7 @@ namespace Trading
             break;
             updateBBO(bids_updated_, asks_updated_);
         }
-        trade_engine_->onOrderBookUpdate(market_update->ticker_id_, market_update->price_, market_update->side_);
+        trade_engine_->onOrderBookUpdate(market_update->ticker_id_, market_update->price_, market_update->side_,this);
         logger_->log("%:% %() % % %", __FILE__, __LINE__, __FUNCTION__,
                      Common::getCurrentTimeStr(&time_str_), market_update->toString(), bbo_.toString());
     }

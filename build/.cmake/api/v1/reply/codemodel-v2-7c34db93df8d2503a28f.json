@@ -1,0 +1,147 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						4
+					]
+				},
+				{
+					"build" : "common",
+					"jsonFile" : "directory-common-Debug-6a5c22a1ee7f2aca6d8e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "common",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "exchange",
+					"jsonFile" : "directory-exchange-Debug-f8e4d7818f8b123ba459.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "exchange",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "trading",
+					"jsonFile" : "directory-trading-Debug-df444bb8e7d183bd6e85.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "trading",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "LowLatencyApp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "exchange_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-exchange_main-Debug-c8b1563586b101882c8a.json",
+					"name" : "exchange_main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libcommon::@bfc844598bd03e848b3c",
+					"jsonFile" : "target-libcommon-Debug-e9a799c97d1169d7a0dd.json",
+					"name" : "libcommon",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "libexchange::@0e6322bdb95de66a55f7",
+					"jsonFile" : "target-libexchange-Debug-455086e37ff14ac4d1ca.json",
+					"name" : "libexchange",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "libtrading::@efbb353c41a480a02cef",
+					"jsonFile" : "target-libtrading-Debug-6179815f33fcac626286.json",
+					"name" : "libtrading",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trading_main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trading_main-Debug-944e1e2e992ca902763c.json",
+					"name" : "trading_main",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/pore/LowLatency-trading-system/build",
+		"source" : "/home/pore/LowLatency-trading-system"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

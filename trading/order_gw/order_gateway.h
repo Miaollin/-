@@ -69,7 +69,7 @@ namespace Trading
         OrderGateway &operator=(const OrderGateway &&) = delete;
 
     private:
-        auto run() -> void;
+        auto run() noexcept -> void;
         auto recvCallback(TCPSocket *socket, Nanos rx_time) noexcept -> void;
     };
 }

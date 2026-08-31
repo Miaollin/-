@@ -33,9 +33,9 @@ namespace Trading
             {
                 mkt_price_ = (bbo->bid_price_ * bbo->ask_qty_ + bbo->ask_price_ * bbo->bid_qty_) / static_cast<double>(bbo->bid_qty_ + bbo->ask_qty_);
             }
-            logger_->log("%:% %() % % mkt-price:% agg-trade-ratio:%\n", __FILE__, __LINE__, __FUNCTION__,
-                         Common::getCurrentTimeStr(&time_str_),
-                         ticker_id, Common::priceToString(price).c_str(), mkt_price_, agg_trade_qty_ratio_);
+            logger_->log("%:% %() % ticker:% price:% side:% mkt-price:% agg-trade-ratio:%\n", __FILE__, __LINE__, __FUNCTION__,
+                         Common::getCurrentTimeStr(&time_str_), ticker_id, Common::priceToString(price).c_str(),
+                         Common::sideToString(side).c_str(), mkt_price_, agg_trade_qty_ratio_);
         }
         auto onTradeUpdate(const Exchange::MEMarketUpdate *market_update, MarketOrderBook *book) noexcept -> void
         {

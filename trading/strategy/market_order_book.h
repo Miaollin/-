@@ -27,8 +27,8 @@ namespace Trading
     public:
         MarketOrderBook(TickerId ticker_id, Logger *logger);
         ~MarketOrderBook();
-        auto setTradeEngine(TradeEngine *trade_engine);
-        auto onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept;
+        auto setTradeEngine(TradeEngine *trade_engine) ->void;
+        auto onMarketUpdate(const Exchange::MEMarketUpdate *market_update) noexcept ->void;
         auto updateBBO(bool update_bid, bool update_ask) noexcept -> void;
         auto getBBO() const noexcept -> const BBO *
         {

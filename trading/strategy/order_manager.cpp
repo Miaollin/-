@@ -1,12 +1,13 @@
 #include "order_manager.h"
+#include "trade_engine.h"
 
 namespace Trading
 {
-    auto OrderManager::newOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept
+    auto OrderManager::newOrder(OMOrder *order, TickerId ticker_id, Price price, Side side, Qty qty) noexcept ->void
     {
         const Exchange::MEClientRequest new_request{Exchange::ClientRequestType::NEW, trade_engine_->clientId(), ticker_id,
                                                     next_order_id_, side, price, qty};
-        trade_engine_->sendCLientRequest(&new_request);
+        trade_engine_->sendClientRequest(&new_request);
         *order = {ticker_id, next_order_id_, side, price, qty, OMOrderState::PENDING_NEW};
         ++next_order_id_;
         logger_->log("%:% %() % Sent new order % for %\n", __FILE__, __LINE__, __FUNCTION__,
